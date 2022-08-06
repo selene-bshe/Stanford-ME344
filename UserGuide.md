@@ -20,15 +20,17 @@ sbatch submit_gmx.slurm
 ```
 This will take a few minutes to finish. You can use the command `squeue` to check job status. To cancel jobs, use `scancel +[JOBID]`.
 
-### 3. To visulize gromacs simulation results, submit another job with command:
+### 3. Submit another Jupyeter job: 
 ```
 sbatch jupyter_gmx.slurm
 ```
-With this job running in background, open a new terminal in the local computer, and run the following command (there is no output for this command):
+With this job running in background, open a new terminal in the local computer, and run the following command:
 ```
 ssh -L 8888:localhost:8888 bshe@hpcc-cluster-23 -t ssh -N -L 8888:localhost:8888 compute-1-1
 ```
-### Visualization with Jupyter notebook
+You will be asked to enter password for `hpcc-cluster-23` and 'compute-1-1' nodes. Use `stanfordme344` again, and there should be no output. Proceed to next step.
+
+### 4. Visualization with Jupyter notebook
 We will now use a browser to run Jupyter notebook. Go back to the first terminal that was running `sbatch` on, and enter the command:
 ```
 egrep -w 'compute|localhost'  slurm-*.out
@@ -37,7 +39,7 @@ Copy the URL in the bottom line of the output, which is in the format as:
 ```
 slurm-[JOBID].out:        http://localhost:8888/?token=9c2ac0cca5ae89f93432c557c3c200c792f11ca2a37d714a
 ```
-and enter it to a broswer. The browser now opens a Jupternotebook. 
+and paste it to a broswer. The browser now opens a Jupternotebook. 
 
 Open a new Python 3 notebook, add and execute the following code:
 ```python
@@ -49,7 +51,7 @@ view
 ```
 After some time, you would be able to see a picture of a macromolecule (a polymer blobs). We will ask you to save the visualization results.
 
-### Save figure
+### 5. Save figure
 You could save the figure of the macromolecule using screenshot (for example, `Shift+Command+4`), or save the page as pdf:
 1. Right click the current page, then choose `print page...`;
 2. In the drop-down box, choose `Save as PDF`;
