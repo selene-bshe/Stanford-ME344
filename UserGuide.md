@@ -18,7 +18,12 @@ Next use slurm to submit a Gromacs simulation job with command in the run direct
 ```
 sbatch submit_gmx.slurm
 ```
-This will take a few minutes to finish. You can use the command `squeue` to check job status. To cancel jobs, use `scancel +[JOBID]`.
+This will take a few minutes to finish. You can use the command `squeue` to check job status. You will see results as below. To cancel jobs, use `scancel +[JOBID]`.
+```
+ JOBID PARTITION      NAME     USER ST       TIME  NODES   NODELIST(REASON)
+     8    normal   Jupyter     bshe  R       1:06      1     compute-1-1 
+```
+
 
 ### 3. Submit another Jupyeter job: 
 ```
