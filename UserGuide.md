@@ -3,13 +3,22 @@ Log on to cluster `23` with user account `bshe` using password: `stanfordme344`:
 ```
 ssh bshe@hpcc-cluster-23
 ```
-
-### 2. Use slurm to submit a Gromacs simulation job with command in the run directory:
+You should see the CLI now shows:
 ```
-cd $ gxm_root_dir/run
+[bshe@hpcc-cluster-23 ~]$
+```
+### 2. Submit GROMACS job:
+First, change to the `run` directory:
+```
+cd $gxm_root_dir/run
+```
+If you use `pwd`, you should see `/home/bshe/project-2-b/gromacs/gromacs-2020.2/run`; otherwise `cd` to this directory.
+
+Next use slurm to submit a Gromacs simulation job with command in the run directory:
+```
 sbatch submit_gmx.slurm
 ```
-This will take a few minutes to finish the job. You can use the command `squeue` to check job status. To cancel jobs, use `scancel +[JOBID]`.
+This will take a few minutes to finish. You can use the command `squeue` to check job status. To cancel jobs, use `scancel +[JOBID]`.
 
 ### 3. To visulize gromacs simulation results, submit another job with command:
 ```
@@ -20,11 +29,17 @@ With this job running in background, open a new terminal in the local computer, 
 ssh -L 8888:localhost:8888 bshe@hpcc-cluster-23 -t ssh -N -L 8888:localhost:8888 compute-1-1
 ```
 ### Visualization with Jupyter notebook
-Now open a browser and enter the following URL:
+We will now use a browser to run Jupyter notebook. Go back to the first terminal that was running `sbatch` on, and enter the command:
 ```
-http://localhost:8888/?token=12f69a8a5b815de0f3aa04965b64cefe793a384381551e89
+egrep -w 'compute|localhost'  slurm-*.out
 ```
-The browser now opens a Jupternotebook. Open a new Python 3 notebook, add and execute the following code:
+Copy the URL in the bottom line of the output, which is in the format as:
+```
+slurm-[JOBID].out:        http://localhost:8888/?token=9c2ac0cca5ae89f93432c557c3c200c792f11ca2a37d714a
+```
+and enter it to a broswer. The browser now opens a Jupternotebook. 
+
+Open a new Python 3 notebook, add and execute the following code:
 ```python
 import nglview as nv
 view = nv.show_structure_file("confout.gro")
