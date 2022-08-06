@@ -52,7 +52,7 @@ view
 After some time, you would be able to see a picture of a macromolecule (a polymer blobs). We will ask you to save the visualization results.
 
 ### 5. Save figure
-You could save the figure of the macromolecule using screenshot (for example, `Shift+Command+4`), or save the page as pdf:
+You could save the figure of the macromolecule using screenshot (for example, `Shift+Command+4` for Macbook user), or save the page as pdf:
 1. Right click the current page, then choose `print page...`;
 2. In the drop-down box, choose `Save as PDF`;
 3. Choose the name and location of the pdf file, and press `Save`.
