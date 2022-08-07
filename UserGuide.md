@@ -10,10 +10,8 @@ You should see the CLI now shows:
 ### 2. Submiting GROMACS job:
 First, change to the `run` directory:
 ```
-cd $gxm_root_dir/run
+cd /home/bshe/project-2-b/gromacs/gromacs-2020.2/run
 ```
-If you use `pwd`, you should see `/home/bshe/project-2-b/gromacs/gromacs-2020.2/run`; otherwise `cd` to this directory.
-
 Next use slurm to submit a Gromacs simulation job with command in the run directory:
 ```
 sbatch submit_gmx.slurm
@@ -27,13 +25,13 @@ This will take a few minutes to finish. You can use the command `squeue` to chec
 
 ### 3. Submiting another Jupyeter job: 
 ```
-sbatch jupyter_gmx.slurm
+sbatch jupyter_submit.slurm
 ```
 With this job running in background, open a new terminal in the local computer, and run the following command:
 ```
 ssh -L 8888:localhost:8888 bshe@hpcc-cluster-23 -t ssh -N -L 8888:localhost:8888 compute-1-1
 ```
-You will be asked to enter password for `hpcc-cluster-23` and `compute-1-1` nodes. Use `stanfordme344` again. There should be no output, and simply proceed to next step.
+You will be asked to enter password for `hpcc-cluster-23` and `compute-1-1` nodes. Use `stanfordme344` for both case. There should be no output, and simply proceed to next step.
 
 ### 4. Visualization with Jupyter notebook
 We will now use a browser to run Jupyter notebook. Go back to the first terminal that was running `sbatch` on, and enter the command:
