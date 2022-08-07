@@ -7,7 +7,7 @@ You should see the CLI now shows:
 ```
 [bshe@hpcc-cluster-23 ~]$
 ```
-### 2. Submit GROMACS job:
+### 2. Submiting GROMACS job:
 First, change to the `run` directory:
 ```
 cd $gxm_root_dir/run
@@ -25,7 +25,7 @@ This will take a few minutes to finish. You can use the command `squeue` to chec
 ```
 
 
-### 3. Submit another Jupyeter job: 
+### 3. Submiting another Jupyeter job: 
 ```
 sbatch jupyter_gmx.slurm
 ```
@@ -33,7 +33,7 @@ With this job running in background, open a new terminal in the local computer, 
 ```
 ssh -L 8888:localhost:8888 bshe@hpcc-cluster-23 -t ssh -N -L 8888:localhost:8888 compute-1-1
 ```
-You will be asked to enter password for `hpcc-cluster-23` and 'compute-1-1' nodes. Use `stanfordme344` again, and there should be no output. Proceed to next step.
+You will be asked to enter password for `hpcc-cluster-23` and `compute-1-1` nodes. Use `stanfordme344` again. There should be no output, and simply proceed to next step.
 
 ### 4. Visualization with Jupyter notebook
 We will now use a browser to run Jupyter notebook. Go back to the first terminal that was running `sbatch` on, and enter the command:
@@ -64,6 +64,8 @@ You could save the figure of the macromolecule using screenshot (for example, `S
 
 
 
+### 6. Terminating Jupyter
+To terminate Jupyter notebook, close the browser, and enter `control+C` in the terminal of local computer to interupt the port-forwarding process.
 
-
+Next, go back to the first terminal and use `scancel [JOBID]]`, where `[JOBID]` can be found using `squeue` as previously described. Now the Juoyter job is stopped from running and you can safely exit remote server using `exit`.
 
