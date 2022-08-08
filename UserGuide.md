@@ -42,9 +42,9 @@ Copy the URL in the bottom line of the output, which is in the format as:
 ```
 slurm-[JOBID].out:        http://localhost:8888/?token=9c2ac0cca5ae89f93432c557c3c200c792f11ca2a37d714a
 ```
-and paste it to a broswer. The browser now opens a Jupternotebook. 
+where the `[JOBID]` corresponds to the Jupyter job you just submitted. You can use `squeue` to check. Paste the URL to a broswer. The browser now opens a Jupyter page. 
 
-Open a new Python 3 notebook, add and execute the following code:
+If you see `Visualization.ipynb`, open it and run the cell. Otherwise open a new Python 3 notebook, add and execute the following code:
 ```python
 import nglview as nv
 view = nv.show_structure_file("confout.gro")
