@@ -52,7 +52,7 @@ view.clear()
 view.add_cartoon()
 view
 ```
-After some time, you would be able to see a picture of a macromolecule (a polymer blobs). We will ask you to save the visualization results.
+After some time, you would be able to see a picture of a macromolecule (a polymer blob). We will ask you to save the visualization results.
 
 ### 5. Save figure
 You could save the figure of the macromolecule using screenshot (for example, `Shift+Command+4` for Macbook user), or save the page as pdf:
@@ -65,5 +65,5 @@ You could save the figure of the macromolecule using screenshot (for example, `S
 ### 6. Terminating Jupyter
 To terminate Jupyter notebook, close the browser, and enter `control+C` in the terminal of local computer to interupt the port-forwarding process.
 
-Next, go back to the first terminal and use `scancel [JOBID]]`, where `[JOBID]` can be found using `squeue` as previously described. Now the Juoyter job is stopped from running and you can safely exit remote server using `exit`.
+Next, go back to the first terminal and use `scancel [JOBID]`, where `[JOBID]` can be found using `squeue` as previously described. Now the Juoyter job is stopped from running and you can safely exit remote server using `exit`.
 
