@@ -27,7 +27,7 @@ This will take a few minutes to finish. You can use the command `squeue` to chec
 ```
 sbatch jupyter_submit.slurm
 ```
-With this job running in background, **open a new terminal in the local computer**, and run the following command:
+With this job running in background, ***open a new terminal in the local computer***, and run the following command:
 ```
 ssh -L 8888:localhost:8888 bshe@hpcc-cluster-23 -t ssh -N -L 8888:localhost:8888 compute-1-1
 ```
